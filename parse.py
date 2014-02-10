@@ -26,7 +26,7 @@ class gestion_plantilla(object):
 			print x.nodeValue
 			#nodo.nodeValue="adios"
 	def guardar(self):
-		fichero=open(os.path.realpath("nuevo_fichero"),"w")
+		fichero=open(os.path.realpath("nuevo_fichero.xml"),"w")
 		self.arbol_dom.writexml(fichero, encoding='iso-8859-1')
 		fichero.close()
 
