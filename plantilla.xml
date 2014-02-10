@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <plantilla>
-<title>hola</title>
+<nodos>
+<title>HOLA</title>
 <source>hola</source>
 <date>hola</date>
 <kind>hola</kind>
 <meta>hola</meta>
 <text>hola</text>
+</nodos>
 </plantilla>
