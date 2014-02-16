@@ -1,7 +1,7 @@
 #!/usr/bin/python
-
 from xml.dom import minidom
 import os, time
+import codecs
 
 
 class gestion_plantilla(object):
@@ -24,9 +24,13 @@ class gestion_plantilla(object):
 			x=nodo.getElementsByTagName(atributo)[0]
 			x.childNodes[0].nodeValue = texto
 	def guardar(self):
-		fichero=open(os.path.realpath(self.info_nombre_raw+"_parseado"+".xml"),"w")
-		self.arbol_dom.writexml(fichero, encoding='iso-8859-1')
+		#fichero=open(os.path.realpath(self.info_nombre_raw+"_parseado"+".xml"),"w")
+		#fichero=self.info_nombre_raw+"_parseado"+".xml"
+		fichero=codecs.open(self.info_nombre_raw+"_parseado"+".xml",'wb','utf-8')
+		self.arbol_dom.writexml(fichero, encoding='utf-8')
 		fichero.close()
+		
+		
 	def obtener_info(self):
 		self.info_nombre=os.listdir(self.info_path)[0]
 		self.info_nombre_raw, self.info_extension=os.path.splitext(self.info_nombre)
@@ -43,7 +47,8 @@ class gestion_plantilla(object):
 	
 	def obtener_texto(self):
 		fichero=open(os.path.realpath(self.info_path +'/'+ self.info_nombre),"r")
-		self.info_text=fichero.read()
+		cadena=fichero.read()
+		self.info_text=unicode(cadena,'utf-8')
 		print self.info_text
 		fichero.close()
 	
@@ -69,3 +74,4 @@ plantilla.modificar_atributo('title',plantilla.info_nombre_raw)
 plantilla.modificar_atributo('date',plantilla.info_fecha)
 plantilla.modificar_atributo('text',plantilla.info_text)
 plantilla.mostrar_arbol_dom()
+plantilla.guardar()
