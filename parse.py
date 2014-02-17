@@ -12,7 +12,8 @@ class gestion_plantilla(object):
 			self.doc_root=self.arbol_dom.documentElement
 		except:
 			print "No se ha podido abrir el arcivo"
-		self.info_path='/home/borja/ecloud/parseador/ficheros_nuevos'
+		#self.info_path='/home/borja/ecloud/parseador/ficheros_nuevos'
+		self.info_path='./ficheros_nuevos'
 
 	def mostrar_arbol_dom(self):
 		print self.arbol_dom.toprettyxml()
@@ -26,7 +27,7 @@ class gestion_plantilla(object):
 	def guardar(self):
 		#fichero=open(os.path.realpath(self.info_nombre_raw+"_parseado"+".xml"),"w")
 		#fichero=self.info_nombre_raw+"_parseado"+".xml"
-		fichero=codecs.open(self.info_nombre_raw+"_parseado"+".xml",'wb','utf-8')
+		fichero=codecs.open(self.info_nombre_raw+"_parseado"+".xml",'w','utf-8')
 		self.arbol_dom.writexml(fichero, encoding='utf-8')
 		fichero.close()
 		
