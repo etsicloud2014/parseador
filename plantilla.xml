@@ -5,7 +5,9 @@
 <source>fuente</source>
 <date>fecha(última modificación)</date>
 <kind>tipo</kind>
-<meta>meta_info</meta>
+<meta>
+  <subkind></subkind>  
+</meta>
 <text>texto</text>
 </nodos>
 </plantilla>
